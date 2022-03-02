@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row pt-4 pb-4">
+    <h2>Our Courses  <button class="btn btn-primary" style="display: inline-block" [routerLink]="['/create']">Add Course</button></h2>  
+  </div>
+
+  <div class="card-body">
+    <div class="row mt-3" *ngFor="let item of courses;">
+      <div class="col-md-5 col-lg-3 col-xl-3">
+        <div class="rounded mb-3 mb-md-0">
+          <img class="rounded" [src]="item.imageUrl" style="width: 100px" />
+        </div>
+      </div>
+      <div class="col-md-7 col-lg-9 col-xl-9">
+        <div class="d-flex justify-content-between">
+          <div>
+            <h5>{{ item.name }}</h5>
+          </div>
+
+          <div>
+            <button class="btn btn-secondary" [routerLink]="['/create',item.id]">Update</button> &nbsp;
+            <button class="btn btn-danger" (click)="DeleteCourse(item.id)">Delete</button>
+        </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
